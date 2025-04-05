@@ -1,10 +1,18 @@
+import island.Island
+import island.animals.*
+
 fun main() {
     println("=== 🌴 СИМУЛЯЦИЯ ОСТРОВА ===")
-    val wolf = island.animals.Wolf()
 
-    wolf.eat()
-    wolf.move()
+    val island = Island(width = 5, height = 5)  // Маленький остров для наглядности
 
-    println("\nИтог:")
-    println("${wolf.icon} Сытость: ${wolf.currentFood}/${wolf.maxFood}")
+    // Добавляем животных
+    island.addAnimal(Wolf())
+    island.addAnimal(Rabbit())
+    island.addAnimal(Bear())
+    island.addAnimal(Rabbit())
+
+    // Запускаем симуляцию
+    island.simulateDay()
+    island.printIsland()  // Добавьте эту строку
 }
